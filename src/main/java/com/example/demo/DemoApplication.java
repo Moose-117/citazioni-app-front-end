@@ -149,9 +149,14 @@ public class DemoApplication {
         
         @Bean
 	public CorsFilter corsFilter() {
+
+        public static final String ALL = "*";
+        private static final List<String> DEFAULT_PERMIT_ALL = Collections.singletonList(ALL);
+
+
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
 		corsConfiguration.setAllowCredentials(true);
-		corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
+		corsConfiguration.setAllowedOrigins(Arrays.asList(DEFAULT_PERMIT_ALL));
 		corsConfiguration.setAllowedHeaders(Arrays.asList("Origin", "Access-Control-Allow-Origin", "Content-Type",
 				"Accept", "Authorization", "Origin, Accept", "X-Requested-With",
 				"Access-Control-Request-Method", "Access-Control-Request-Headers"));
